@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+		<title>preview</title>
+		<style type="text/css">
+			*{
+				margin: 3px;
+				padding: 0;
+			}
+			body{
+				background-color: #f5f5f5;
+			}
+			input{
+				    width: 216px;
+				    height: 27px;
+			}
+			button{
+				width: 216px;
+				height: 27px;
+			}
+		</style>
+	</head>
+	<body>
+		<a>JSON文件生成器 alpha V0.01</a>
+		<form action="" method="">
+			<a>申请时间</a>
+			<input type="text" id="bj" value="暂未开发无需填写" /><br>
+			<a>申请通过时间</a>
+			<input type="text" id="bj" value="暂未开发无需填写" /><br><br>
+			<a>班级姓名</a>
+			<input type="text" id="bj" value="2019级高职数字媒体应用技术0班用户名" /><br>
+			<a>问题</a>
+			<input type="text" id="wt" value="理由" /><br>
+			<a>类型</a>
+			<input type="text" id="lx" value="病假" /><br>
+			<a>从何时开始</a>
+			<input type="text" id="time1" value="2021-05-26 06:01" /><br>
+			<a>从周几</a>
+			<input type="text" id="week1" value="三" /><br>
+			<a>从何时结束</a>
+			<input type="text" id="time2" value="2021-05-26 06:01" /><br>
+			<a>到周几</a>
+			<input type="text" id="week2" value="五" /><br>
+			<a>旷课数</a>
+			<input type="text" id="num" value="1" /><br>
+			<a>去到</a>
+			<input type="text" id="qu" value="校外" /><br>
+			<a>地址</a>
+			<input type="text" id="dz" value="威海市内" /><br>
+			<a>联系人</a>
+			<input type="text" id="lxr" value="父母" /><br>
+			<a>联系电话</a>
+			<input type="text" id="lxdh" value="13111111111111" /><br>
+			<a>输出</a>
+			<input type="text" id="output" value="55555" /><br>
+			<a>下载</a>
+			<button type="button" id="btn1">下载</button>
+			</form>
+			
+		<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" >	
+		$("#btn").click(function(a) {
+			
+		});
+
+					var ka = $("#output").val()
+					function fake_click(obj) {  
+					    var ev = document.createEvent("MouseEvents");  
+					    ev.initMouseEvent(  
+					        "click", true, false, window, 0, 0, 0, 0, 0  
+					        , false, false, false, false, 0, null  
+					        );  
+					    obj.dispatchEvent(ev);  
+					}  
+					  
+					function export_raw(name, data) {  
+					    var urlObject = window.URL || window.webkitURL || window;  
+					  
+					    var export_blob = new Blob([data]);  
+					  
+					    var save_link = document.createElementNS("http://www.w3.org/1999/xhtml", "a")  
+					    save_link.href = urlObject.createObjectURL(export_blob);  
+					    save_link.download = name;  
+					    fake_click(save_link);  
+					}  
+					  
+					$('#btn1').click(function() {  
+						$("#output").val("{\"bj\":\"" + $("#bj").val() + "\",\"wt\":\"" + $("#wt").val() + "\",\"lx\":\"" + $("#lx").val() + "\",\"time1\":\"" + $("#time1").val() + "\",\"week1\":\"" + $("#week1").val() + "\",\"time2\":\"" + $("#time2").val() + "\",\"week2\":\"" + $("#week2").val() + "\",\"num\":\"" + $("#num").val() + "\",\"qu\":\"" + $("#qu").val() + "\",\"dz\":\"" + $("#dz").val() + "\",\"lxr\":\"" + $("#lxr").val() + "\",\"lxdh\":\"" + $("#lxdh").val() + "\"}");
+						var t1 =  $("#output").val()
+					    export_raw('data.json', t1);  
+					});  
+
+		</script>
+	</body>
+</html>

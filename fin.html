@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+		<title>校园集结号</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background-color: #f5f5f5;
+				font-family: Arial, sans-serif;
+			}
+			.p1{
+				position: fixed;
+				width: 100%;
+				z-index: 2;
+			}
+			.p2{
+			    width: 100%;
+			    margin-top: 46.5px;
+			}
+
+			.p4{
+				width: 100%;
+			}
+			.p5{
+				width: 100%;
+			}
+			.p3{
+				
+				/* position: absolute;
+				top: 38.75%; */
+			    width: 100%;
+				/* background-color: #0000ff10; */
+
+			}
+			.container{
+			    width: 94%;
+			    margin-left: 3%;
+				margin-right: 3%;
+				background-color: white;
+			}
+			.title{
+			    width: 100%;
+			    display: inline-block;
+			    text-align: center;
+				padding-top: 12px;
+				font-size: 18px;
+			}
+			.tch{
+			    padding-top: 3px;
+			    display: inline-block;
+			    padding-left: 18px;
+			    font-size: 16px;
+				letter-spacing: 1px;
+			}
+			.content{
+			    font-size: 16px;
+			    text-indent: 33px;
+			    padding-top: 18px;
+			    padding-left: 18px;
+			    padding-right: 18px;
+			    display: inline-block;
+			    letter-spacing: 0.5px;
+			    line-height: 23px;
+			}
+			span{
+				color: #13a0fa;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="part1.png" class="p1">
+		<img src="part2.png" class="p2">
+		<div class="p3">
+			<div class="container">
+				<a class="title">请假申请</a><br>
+				<a class="tch">尊敬的老师:</a><br>
+				<a class="content">本人<span id="bj"></span>因<span id="wt"></span>，需请<span id="lx"></span>，从&nbsp;<span style="letter-spacing: 0px;" id="time1"></span><span>（周</span><span id="week1"></span><span>）</span> 至<span style="letter-spacing: 0px;" id="time2"></span><span>（周</span><span id="week2"></span><span>）</span> ，不能参加累计<span id="num">1</span>节课程的学习。</a>
+				<a class="content" style="padding-top: 2px;">请假期间，本人将前往<span id="qu"></span>， 详细地址为：<span id="dz"></span>，联系人：<span id="lxr"></span>， 联系电话:<span style="letter-spacing: 0px;text-decoration: underline;" id="lxdh"></span></a>
+			</div>
+			
+		</div>
+		<img src="part4.png" class="p4">
+		<img src="part5.png" class="p5">
+		
+		<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" >	
+		
+			$.ajax({
+				type:"get",
+				url:"data.json",
+				dateType:"json",
+				success:function(data){
+					window.console.log(data);
+					$('#bj').html(data.bj);
+					$('#wt').html(data.wt);
+					$('#lx').html(data.lx);
+					$('#time1').html(data.time1);
+					$('#week1').html(data.week1);
+					$('#time2').html(data.time2);
+					$('#week2').html(data.week2);
+					$('#num').html(data.num);
+					$('#qu').html(data.qu);
+					$('#dz').html(data.dz);
+					$('#lxr').html(data.lxr);
+					$('#lxdh').html(data.lxdh);
+				}
+				
+			});
+		
+
+		</script>
+	</body>
+</html>
